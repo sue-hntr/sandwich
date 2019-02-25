@@ -1,0 +1,41 @@
+<h1>Eat-Da-Sandwich</h1>
+
+{{!-- not devoured --}}
+
+
+<h3>Sandwiches Ready To Eat!</h3>
+
+<ul>
+  {{#each sandwiches}}
+    {{#if devoured}}
+      {{> sandwiches/sandwich-block devoured=false}}
+    {{/if}}
+  {{/each}}
+</ul>
+
+
+<h3>All Gone. So Sad.</h3>
+<ul>
+  {{#each sandwiches}}
+    {{#unless devoured}}
+      {{> sandwiches/sandwich-block devoured=true}}
+    {{/unless}}
+  {{/each}}
+</ul>
+
+
+
+
+<h2>Add a Sandwich</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="sa">Name of Sandwich:</label>
+    <input type="text" id="sa" name="sandwich_name">
+
+    {{!-- <input type="text" id="dv" name="devoured"> --}}
+    
+  </div>
+
+  <button type="submit">Add Sandwich</button>
+</form>
